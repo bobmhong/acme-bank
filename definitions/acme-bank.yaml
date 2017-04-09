@@ -1,0 +1,449 @@
+paths:
+  /branches:
+    post:
+      tags:
+        - branch
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: branch.create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/branch'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/branch'
+      deprecated: false
+    put:
+      tags:
+        - branch
+      summary: >-
+        Patch an existing model instance or insert a new one into the data
+        source.
+      operationId: branch.upsert__put_branches
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/branch'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/branch'
+      deprecated: false
+    patch:
+      tags:
+        - branch
+      summary: >-
+        Patch an existing model instance or insert a new one into the data
+        source.
+      operationId: branch.upsert__patch_branches
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/branch'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/branch'
+      deprecated: false
+    get:
+      tags:
+        - branch
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: branch.find
+      parameters:
+        - name: filter
+          in: query
+          description: >-
+            Filter defining fields, where, include, order, offset, and limit -
+            must be a JSON-encoded string ({"something":"value"})
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/branch'
+      deprecated: false
+  /branches/replaceOrCreate:
+    post:
+      tags:
+        - branch
+      summary: >-
+        Replace an existing model instance or insert a new one into the data
+        source.
+      operationId: branch.replaceOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/branch'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/branch'
+      deprecated: false
+  /branches/upsertWithWhere:
+    post:
+      tags:
+        - branch
+      summary: >-
+        Update an existing model instance or insert a new one into the data
+        source based on the where criteria.
+      operationId: branch.upsertWithWhere
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/branch'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/branch'
+      deprecated: false
+  '/branches/{id}/exists':
+    get:
+      tags:
+        - branch
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'branch.exists__get_branches_{id}_exists'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+  '/branches/{id}':
+    head:
+      tags:
+        - branch
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'branch.exists__head_branches_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+    get:
+      tags:
+        - branch
+      summary: 'Find a model instance by {{id}} from the data source.'
+      operationId: branch.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: >-
+            Filter defining fields and include - must be a JSON-encoded string
+            ({"something":"value"})
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/branch'
+      deprecated: false
+    delete:
+      tags:
+        - branch
+      summary: 'Delete a model instance by {{id}} from the data source.'
+      operationId: branch.deleteById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+    put:
+      tags:
+        - branch
+      summary: >-
+        Patch attributes for a model instance and persist it into the data
+        source.
+      operationId: 'branch.prototype.updateAttributes__put_branches_{id}'
+      parameters:
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/branch'
+        - name: id
+          in: path
+          description: branch id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/branch'
+      deprecated: false
+    patch:
+      tags:
+        - branch
+      summary: >-
+        Patch attributes for a model instance and persist it into the data
+        source.
+      operationId: 'branch.prototype.updateAttributes__patch_branches_{id}'
+      parameters:
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/branch'
+        - name: id
+          in: path
+          description: branch id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/branch'
+      deprecated: false
+  '/branches/{id}/replace':
+    post:
+      tags:
+        - branch
+      summary: >-
+        Replace attributes for a model instance and persist it into the data
+        source.
+      operationId: branch.replaceById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/branch'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/branch'
+      deprecated: false
+  /branches/findOne:
+    get:
+      tags:
+        - branch
+      summary: Find first instance of the model matched by filter from the data source.
+      operationId: branch.findOne
+      parameters:
+        - name: filter
+          in: query
+          description: >-
+            Filter defining fields, where, include, order, offset, and limit -
+            must be a JSON-encoded string ({"something":"value"})
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/branch'
+      deprecated: false
+  /branches/update:
+    post:
+      tags:
+        - branch
+      summary: 'Update instances of the model matched by {{where}} from the data source.'
+      operationId: branch.updateAll
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/branch'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: Information related to the outcome of the operation
+            type: object
+            properties:
+              count:
+                description: The number of instances updated
+                type: number
+                format: double
+      deprecated: false
+  /branches/count:
+    get:
+      tags:
+        - branch
+      summary: Count instances of the model matched by where from the data source.
+      operationId: branch.count
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+definitions:
+  branch:
+    properties:
+      type:
+        type: string
+      phone:
+        type: string
+      id:
+        type: number
+        format: double
+    required:
+      - type
+    additionalProperties: false
+  x-any:
+    properties: {}
+basePath: /api
+swagger: '2.0'
+info:
+  x-ibm-name: acme-bank
+  version: 1.0.0
+  title: acme-bank
+schemes:
+  - https
+host: $(catalog.host)
+consumes:
+  - application/json
+produces:
+  - application/json
+securityDefinitions:
+  clientIdHeader:
+    type: apiKey
+    in: header
+    name: X-IBM-Client-Id
+  clientSecretHeader:
+    in: header
+    name: X-IBM-Client-Secret
+    type: apiKey
+security:
+  - clientIdHeader: []
+    clientSecretHeader: []
+x-ibm-configuration:
+  testable: true
+  enforced: true
+  cors:
+    enabled: true
+  catalogs:
+    apic-dev:
+      properties:
+        runtime-url: $(TARGET_URL)
+    sb:
+      properties:
+        runtime-url: >-
+          https://apiconnect-83836b80-bd25-48a4-ac97-cb0772df0496.bobmhong-dev.apic.mybluemix.net
+        invoke-tls-profile: 'client:Loopback-client'
+  assembly:
+    execute:
+      - invoke:
+          target-url: $(runtime-url)$(request.path)$(request.search)
+          tls-profile: $(invoke-tls-profile)
+  properties:
+    runtime-url:
+      value: ''
+      description: ''
+      encoded: false
+    invoke-tls-profile:
+      value: ''
+      description: ''
+      encoded: false

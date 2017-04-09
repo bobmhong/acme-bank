@@ -1,0 +1,67 @@
+swagger: '2.0'
+info:
+  x-ibm-name: branches
+  title: Branches
+  version: 1.0.0
+schemes:
+  - https
+host: $(catalog.host)
+basePath: /branches
+consumes:
+  - application/json
+produces:
+  - application/json
+securityDefinitions:
+  clientIdHeader:
+    type: apiKey
+    in: header
+    name: X-IBM-Client-Id
+security:
+  - clientIdHeader: []
+x-ibm-configuration:
+  testable: true
+  enforced: true
+  cors:
+    enabled: true
+  assembly:
+    execute:
+      - invoke:
+          target-url: 'https://apim-services.mybluemix.net/banka/v1/branches'
+          title: Branches Invoke
+          description: >-
+            Invoke an API to retrieve the status of all branches in the BankA
+            system
+paths:
+  /details:
+    get:
+      responses:
+        '200':
+          description: 200 OK
+          schema:
+            $ref: '#/definitions/branch'
+      summary: Branch details
+      description: Retrieve details of the current branches of BankA
+definitions:
+  branch:
+    properties:
+      id:
+        type: string
+      type:
+        type: string
+      address:
+        $ref: '#/definitions/address'
+    additionalProperties: false
+  address:
+    properties:
+      zip_code:
+        type: string
+      state:
+        type: string
+      city:
+        type: string
+      street2:
+        type: string
+      street1:
+        type: string
+    additionalProperties: false
+tags: []

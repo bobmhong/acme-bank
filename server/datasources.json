@@ -1,0 +1,8 @@
+{
+  "bankDS": {
+    "name": "bankDS",
+    "localStorage": "",
+    "file": "",
+    "connector": "memory"
+  }
+}

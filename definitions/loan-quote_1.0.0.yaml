@@ -1,0 +1,110 @@
+swagger: '2.0'
+info:
+  x-ibm-name: loan-quote
+  title: Loan Quote
+  version: 1.0.0
+  description: Provides details of the cost of repayment of a loan
+schemes:
+  - https
+host: $(catalog.host)
+basePath: /quote
+consumes:
+  - application/json
+produces:
+  - application/json
+securityDefinitions:
+  clientIdHeader:
+    type: apiKey
+    in: header
+    name: X-IBM-Client-Id
+security:
+  - clientIdHeader: []
+x-ibm-configuration:
+  testable: true
+  enforced: true
+  cors:
+    enabled: true
+  assembly:
+    execute:
+      - invoke:
+          target-url: >-
+            https://apim-services.mybluemix.net/banka/v1/loans/quote?apr=$(request.parameters.rate)&amount=$(request.parameters.loan)&term=$(request.parameters.duration)
+          output: loan_invoke
+      - map:
+          title: map
+          inputs:
+            Monthly_cost:
+              schema:
+                type: float
+              variable: loan_invoke.body.monthly_payment
+              content: application/json
+            Duration:
+              schema:
+                type: integer
+              variable: request.parameters.duration
+          outputs:
+            Quote_Output:
+              schema:
+                $ref: '#/definitions/Quote_Output'
+              variable: message.body
+              content: application/json
+          actions:
+            - set: Quote_Output.monthly_repayment
+              from: Monthly_cost
+            - set: Quote_Output.total_cost
+              from:
+                - Monthly_cost
+                - Duration
+              value: $(Duration)*$(Monthly_cost)
+          version: 1.0.0
+  gateway: datapower-gateway
+paths:
+  /quote:
+    get:
+      responses:
+        '200':
+          description: 200 OK
+          schema:
+            $ref: '#/definitions/Quote_Output'
+    parameters:
+      - $ref: '#/parameters/rate'
+      - $ref: '#/parameters/loan'
+      - $ref: '#/parameters/duration'
+definitions:
+  Quote_Output:
+    properties:
+      total_cost:
+        type: string
+        description: The total cost of repaying the loan.
+        example: '45029.00'
+      monthly_repayment:
+        type: string
+        description: The monthly repayment for the loan.
+        example: '126.23'
+    additionalProperties: false
+    description: >-
+      The monthly repayment and overall cost of the loan for which the quote is
+      supplied.
+tags: []
+parameters:
+  rate:
+    name: rate
+    type: number
+    required: false
+    in: query
+    format: float
+    description: Interest Rate
+  loan:
+    name: loan
+    type: number
+    required: false
+    in: query
+    description: Loan Amount
+    format: float
+  duration:
+    name: duration
+    type: integer
+    required: false
+    in: query
+    description: Loan Duration in Months
+    format: int32

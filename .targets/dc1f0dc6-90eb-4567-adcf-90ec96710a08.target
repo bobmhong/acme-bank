@@ -1,0 +1,116 @@
+type: bluemix
+server:
+  displayName: US South
+  name: us-south
+  host: us.apiconnect.ibmcloud.com
+org:
+  id: 58e8d25f0cf2e2e1ff5d7d25
+  name: bobmhong-dev
+  displayName: bobmhong (dev)
+  orgType: apiProvider
+  status: active
+  advPortalOverride: true
+  extUaaAuthenticated: false
+  requiresSSLClientCertCheck: false
+  dormant: false
+  url: 'https://us.apiconnect.ibmcloud.com/v1/orgs/58e8d25f0cf2e2e1ff5d7d25'
+  externalOrgId: 947e689f-df4d-47dd-be1b-4589b421a217
+  externalInviteOverride: 'https://console.ng.bluemix.net/apis/catalog/invitation'
+  externalSpaceId: 947e689f-df4d-47dd-be1b-4589b421a217
+  externalNativeOrgId: 67b02ddb-b9f1-4bfe-9343-38b5c2477ba7
+catalog:
+  id: 58e8d2600cf2e2e1ff5d7d31
+  orgId: 58e8d25f0cf2e2e1ff5d7d25
+  name: Sandbox
+  shortName: sb
+  owner:
+    id: 58caecee0cf27933bcfdfb0d
+    username: bobmhong@gmail.com
+    context: apimanager
+    idpId: 58341db4e63b1219f0f068d1
+    email: bobmhong@gmail.com
+    firstName: Bob Hong
+    lastName: ''
+    status: ACTIVE
+    lastLoginTime: '2017-04-08T17:30:25.930+0000'
+    url: 'https://us.apiconnect.ibmcloud.com/v1/users/58caecee0cf27933bcfdfb0d'
+  apiCenter: false
+  baseUrl: 'https://api.us.apiconnect.ibmcloud.com/bobmhong-dev/sb'
+  portalType: BASIC
+  portalUrl: 'https://developer.us.apiconnect.ibmcloud.com/bobmhong-dev/sb'
+  advPortalUrl: 'https://sb-bobmhong-dev.developer.us.apiconnect.ibmcloud.com'
+  gatewayType: DataPowerGateway
+  idp: 58e8d2610cf2e2e1ff5d7d32
+  idps:
+    - 58e8d2610cf2e2e1ff5d7d32
+  availableRoles:
+    - developer
+    - viewer
+  default: false
+  autoDeploy: true
+  gatewayClusterUrl: /gatewayClusters/PRODAPIC_APIMGMT_GATEWAY
+  restrictedDeployment: false
+  invitationEnabled: true
+  selfSignUpEnabled: true
+  spaceEnabled: false
+  spaceIds:
+    - 58e8d2610cf2e2e1ff5d7d3a
+  testAppEnabled: true
+  testAppCredentials:
+    clientId: 8b19df92-2ffd-4a19-bb0f-55d4f47fb8ff
+    clientSecret: hY2sV5dG2oR3eJ4yA0fV7yE0fR7iS2aU8xD5vN5rL3pK7kV3cO
+  createdAt: '2017-04-08T12:06:57.506+0000'
+  updatedAt: '2017-04-08T12:06:57.506+0000'
+  createdBy: apim-ops@wwpdl.vnet.ibm.com
+  updatedBy: apim-ops@wwpdl.vnet.ibm.com
+  url: >-
+    https://us.apiconnect.ibmcloud.com/v1/orgs/58e8d25f0cf2e2e1ff5d7d25/environments/58e8d2600cf2e2e1ff5d7d31
+  productDeploymentApprovalRequiredStates: []
+  orgName: bobmhong-dev
+space:
+  none: true
+app:
+  metadata:
+    guid: 83836b80-bd25-48a4-ac97-cb0772df0496
+    url: /v2/apps/83836b80-bd25-48a4-ac97-cb0772df0496
+    created_at: '2017-04-08T17:39:00Z'
+    updated_at: '2017-04-08T17:40:46Z'
+  entity:
+    name: acme-bank
+    production: false
+    space_guid: 947e689f-df4d-47dd-be1b-4589b421a217
+    stack_guid: ac91d31a-86a3-453b-babf-8d49c9d763fc
+    buildpack: null
+    detected_buildpack: 'SDK for Node.js(TM) (ibm-node.js-4.8.0, buildpack-v3.11-20170303-1144)'
+    environment_json: {}
+    memory: 256
+    instances: 1
+    disk_quota: 1024
+    state: STARTED
+    version: 67796285-3028-40f0-8187-35954e5f418f
+    command: null
+    console: true
+    debug: null
+    staging_task_id: bc0a8632e4aa4777beb2723b7767142d
+    package_state: STAGED
+    health_check_type: port
+    health_check_timeout: null
+    staging_failed_reason: null
+    staging_failed_description: null
+    diego: true
+    docker_image: null
+    package_updated_at: '2017-04-08T17:39:05Z'
+    detected_start_command: ./vendor/initial_startup.rb
+    enable_ssh: true
+    docker_credentials_json:
+      redacted_message: '[PRIVATE DATA HIDDEN]'
+    ports:
+      - 8080
+    space_url: /v2/spaces/947e689f-df4d-47dd-be1b-4589b421a217
+    stack_url: /v2/stacks/ac91d31a-86a3-453b-babf-8d49c9d763fc
+    routes_url: /v2/apps/83836b80-bd25-48a4-ac97-cb0772df0496/routes
+    events_url: /v2/apps/83836b80-bd25-48a4-ac97-cb0772df0496/events
+    service_bindings_url: /v2/apps/83836b80-bd25-48a4-ac97-cb0772df0496/service_bindings
+    route_mappings_url: /v2/apps/83836b80-bd25-48a4-ac97-cb0772df0496/route_mappings
+id: dc1f0dc6-90eb-4567-adcf-90ec96710a08
+target: 1.0.0

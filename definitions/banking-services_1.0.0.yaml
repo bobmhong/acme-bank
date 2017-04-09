@@ -1,0 +1,35 @@
+product: 1.0.0
+info:
+  name: banking-services
+  title: Banking Services
+  version: 1.0.0
+  categories:
+    - US/Finance
+visibility:
+  view:
+    type: public
+  subscribe:
+    type: authenticated
+plans:
+  Basic:
+    title: Basic
+    description: Default Plan
+    approval: false
+    rate-limit:
+      value: 10/1minute
+      hard-limit: true
+    apis:
+      branches:
+        operations:
+          - operation: get
+            path: /details
+            rate-limits:
+              rate-limit-1:
+                value: 10/1minute
+                hard-limit: true
+      loan-quote: {}
+apis:
+  branches:
+    $ref: branches_1.0.0.yaml
+  loan-quote:
+    $ref: loan-quote_1.0.0.yaml
